@@ -1,0 +1,1 @@
+export const hotelApi = "http://localhost:1337/hotels";
