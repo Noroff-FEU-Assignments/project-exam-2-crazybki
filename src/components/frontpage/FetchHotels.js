@@ -1,8 +1,10 @@
 import React from 'react';
 import { useState, useEffect } from "react";
 import { hotelApi } from "../constants/ApiStrings";
+import ImgSlider from './ImgSlider';
+import FrontPageSearchBar from './FrontPageSearchBar';
 
-const localHost = "http://localhost:1337"
+
 
 function FetchHotels() {
     const [apiData, setApiData] = useState([]);
@@ -13,12 +15,12 @@ function FetchHotels() {
         async function getData() {
             try {
                 const res = await fetch(hotelApi)
-                console.log(res)
+
 
                 if (res.ok) {
                     const json = await res.json();
-                    console.log(json);
                     setApiData(json);
+
                 } else {
                     setError("An error occured");
                     console.log('error')
@@ -46,15 +48,16 @@ function FetchHotels() {
     }
 
     return (
-        <div>
-            {apiData.map(function (hotel) {
-                return <div key={hotel.id}>
-                    <p>Hotel {hotel.Name}</p>
-                    <p>{hotel.Info}</p>
-                    <img src={localHost + hotel.images.hotel_img[0].formats.small.url} alt="test" />
+        <>
+            <FrontPageSearchBar names={apiData} />
+            {apiData.map(hotel => {
+                return <div className="frontpage_flexcontainer" key={hotel.id}>
+                    <h2>Hotel {hotel.Name}</h2>
+                    <p>{hotel.description}</p>
+                    <ImgSlider images={hotel.img} />
                 </div>
             })}
-        </div>
+        </>
     )
 };
 export default FetchHotels
