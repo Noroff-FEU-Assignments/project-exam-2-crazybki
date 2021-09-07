@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from "react";
 import { hotelApi } from "../constants/ApiStrings";
 import ImgSlider from './ImgSlider';
-//import FrontPageSearchBar from './FrontPageSearchBar';
+import SingleHotel from './SingleHotel';
 
 
 
@@ -11,7 +11,8 @@ function FetchHotels() {
     const [loadData, setLoadData] = useState(true);
     const [error, setError] = useState(null);
     const [searchData, setSearchData] = useState('');
-    const [filteredItems, setFilteredItems] = ([])
+
+
 
 
     useEffect(function () {
@@ -23,6 +24,7 @@ function FetchHotels() {
                 if (res.ok) {
                     const json = await res.json();
                     setApiData(json);
+                    console.log(json)
 
                 } else {
                     setError("An error occured");
@@ -58,10 +60,14 @@ function FetchHotels() {
             <input type="search" placeholder="search" onChange={(e) => setSearchData(e.target.value)} ></input>
 
             {filteredHotels.map(hotel => {
+                const { id, Name, description, img } = hotel
                 return <div className="frontpage_flexcontainer" key={hotel.id}>
                     <h2>Hotel {hotel.Name}</h2>
                     <p>{hotel.description}</p>
                     <ImgSlider images={hotel.img} />
+                    <div>
+                        <SingleHotel key={id} id={id} name={Name} description={description} images={img} />
+                    </div>
                 </div>
             })}
 
