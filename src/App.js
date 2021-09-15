@@ -2,21 +2,41 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import '../src/styles/styles.scss';
 import FrontPage from './components/frontpage/FrontPage';
 import HotelDetails from "./components/frontpage/HotelDetails";
-
+import LoginPage from "./components/login/LoginPage";
+import Navigation from "./components/navigation/Navigation";
+import { AuthProvider } from "../src/components/context/AuthContext"
+import Reservations from "./components/adminpages/Reservations";
+import AdminMessages from "./components/adminpages/AdminMessages";
+import OrderHotelForm from "./components/frontpage/OrderHotelForm";
 
 function App() {
   return (
     <div className="App">
-      <Router>
-        <Route path="/" exact>
-          <FrontPage />
-        </Route>
-        <Switch>
-          <Route path="/hotels/:id">
-            <HotelDetails />
+      <AuthProvider>
+        <Router>
+          <Navigation />
+          <Route path="/" exact>
+            <FrontPage />
           </Route>
-        </Switch>
-      </Router>
+          <Switch>
+            <Route path="/hotels/:id">
+              <HotelDetails />
+            </Route>
+            <Route path="/orderhotelform">
+              <OrderHotelForm />
+            </Route>
+            <Route path="/login">
+              <LoginPage />
+            </Route>
+            <Route path="/reservations">
+              <Reservations />
+            </Route>
+            <Route path="/adminmessages">
+              <AdminMessages />
+            </Route>
+          </Switch>
+        </Router>
+      </AuthProvider>
     </div>
   );
 }

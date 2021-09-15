@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 function SingleHotel({ id }) {
 
     return (
-        <div>
+        <div className="frontpage_btn">
             <Link to={`hotels/${id}`}>
-                <p>See</p>
+                <span className="color_btn">See more</span>
             </Link>
         </div>
     )

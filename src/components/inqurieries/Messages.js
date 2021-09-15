@@ -2,6 +2,7 @@ import React from 'react'
 import { useForm } from "react-hook-form";
 import axios from 'axios';
 
+
 function Messages(props) {
 
     const { register, handleSubmit, watch, reset, formState: { error } } = useForm({
@@ -12,8 +13,7 @@ function Messages(props) {
 
     async function submitMessage(data) {
         const response = await axios.post('http://localhost:1337/messages', data)
-        console.log(response.data)
-        reset()
+        reset();
     }
 
     console.log(watch)
@@ -42,7 +42,7 @@ function Messages(props) {
                 <label>Message:</label>
             </div>
             <div>
-                <textarea{...register('message', { required: true })} placeholder="Write your message here"></textarea>
+                <textarea{...register('message', { required: true })} placeholder="Write your message here" />
             </div>
             <div>
                 <input type="submit" />

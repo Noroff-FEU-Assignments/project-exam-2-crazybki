@@ -1,8 +1,11 @@
 import React from 'react';
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory, Link } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import { hotelApi } from "../constants/ApiStrings"
 import Messages from "../inqurieries/Messages";
+import { Spinner } from "react-bootstrap"
+import OrderHotelForm from './OrderHotelForm';
+
 
 function HotelDetails() {
 
@@ -48,7 +51,9 @@ function HotelDetails() {
     );
 
     if (loading) {
-        return <div>Loading.....</div>
+        return <Spinner animation="border" role="status">
+            <span className="visually-hidden">Loading...</span>
+        </Spinner>
     }
 
     if (error) {
@@ -61,9 +66,16 @@ function HotelDetails() {
         <div>
             <h1>{hotels.Name}</h1>
             <p>{hotels.description}</p>
-            <Messages name={hotels.Name} />
+            <div>
+                <OrderHotelForm hotelinfo={hotels.Name} />
+            </div>
+            <div>
+                <Messages name={hotels.Name} />
+            </div>
         </div>
     )
 }
 
 export default HotelDetails
+
+//"/orderhotelform"

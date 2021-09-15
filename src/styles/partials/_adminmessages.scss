@@ -1,0 +1,58 @@
+.adminmessages_heading {
+    text-transform: uppercase;
+    text-align: center;
+    margin: 50px 0 50px 0;
+    font-size: $heading1;
+}
+
+.flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0 30px 0;
+}
+
+.adminmessages_containter {
+    padding: 40px;
+    border-radius: 10px;
+    background-color: $grey;
+}
+
+
+
+.adminmessages_message {
+    width: 700px;
+    height: 100%;
+    font-size: $fontsize;
+}
+
+.adminmessages_from {
+    font-size: $fontsize;
+}
+
+.adminmessages_name {
+    font-size: $fontsize;
+}
+
+.adminmessages_hotel {
+    font-size: $fontsize;
+}
+
+.adminmessages_title {
+    font-size: $fontsize;
+}
+
+.adminmessages_reply {
+    margin: 0 30px 0 0;
+    padding: 8px 15px;
+    font-size: $fontsize;
+    background-color:$blue;
+    color: white;
+    border: none;
+}
+
+.adminmessages_delete {
+    @extend .adminmessages_reply
+}
+
+
