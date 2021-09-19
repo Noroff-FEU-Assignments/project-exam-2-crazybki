@@ -4,9 +4,9 @@ import { hotelApi } from "../constants/ApiStrings";
 import SingleHotel from './SingleHotel';
 import { Spinner } from "react-bootstrap";
 import hero_front from "../../images/hero_front.jpg";
-import bedandbreakfast from "../../images/icons/bedandbreakfast.jpg";
-import hospits from "../../images/icons/hospits.jpg";
-import hotels from "../../images/icons/hotels.jpg";
+import bedandbreakfast from "../../images/icons/bedandbreakfast.png";
+import hospits from "../../images/icons/hospits.png";
+import hotels from "../../images/icons/hotels.png";
 import bergen from "../../images/icons/bergen.jpg";
 
 

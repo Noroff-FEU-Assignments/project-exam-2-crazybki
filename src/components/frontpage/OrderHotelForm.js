@@ -20,6 +20,8 @@ function OrderHotelForm(props) {
         to_date: yup.string().required('Please enter a date you want to book the hotel room')
     })
 
+    const [SentMessage, setSentMessage] = useState(false);
+
     const { register, handleSubmit, reset, formState: { errors } } = useForm({
         resolver: yupResolver(schema),
         defaultValues: {
@@ -30,6 +32,10 @@ function OrderHotelForm(props) {
     async function submitBookedHotel(data) {
         const response = await axios.post('http://localhost:1337/hotel-reservations', data);
         console.log(response.data)
+        setSentMessage(true);
+        setTimeout(() => {
+            setSentMessage('');
+        }, 3500);
         reset();
     }
 
@@ -124,6 +130,8 @@ function OrderHotelForm(props) {
                                         </Col>
                                     </Row>
                                 </Form.Group>
+                                {SentMessage && <p>Thanks your message has been sent</p>}
+
                                 <Button type="submit">Book now</Button>
                             </Form>
                         </Container>

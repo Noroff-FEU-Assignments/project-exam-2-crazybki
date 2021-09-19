@@ -76,10 +76,10 @@ function HotelDetails() {
                 <InfoDetails details={hotels.includes_whataround} />
             </div>
             <div>
-                <OrderHotelForm hotelinfo={hotels.Name} />
+                <Messages name={hotels.Name} />
             </div>
             <div>
-                <Messages name={hotels.Name} />
+                <OrderHotelForm hotelinfo={hotels.Name} />
             </div>
         </>
     )
