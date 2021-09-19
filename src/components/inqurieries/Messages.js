@@ -1,7 +1,7 @@
 import React from 'react'
 import { useForm } from "react-hook-form";
 import axios from 'axios';
-
+import Accordion from 'react-bootstrap/Accordion'
 
 function Messages(props) {
 
@@ -18,37 +18,47 @@ function Messages(props) {
 
     console.log(watch)
     return (
-        <form onSubmit={handleSubmit(submitMessage)}>
-            <div>
-                <label>First Name:</label>
-                <input {...register('firstName', { required: true })} placeholder="First name" />
-            </div>
+        <>
+            <Accordion>
+                <Accordion.Item eventKey="0">
+                    <Accordion.Header>Send us a questions about this hotel</Accordion.Header>
+                    <Accordion.Body>
+                        <form onSubmit={handleSubmit(submitMessage)}>
+                            <div>
+                                <label>First Name:</label>
+                                <input {...register('firstName', { required: true })} placeholder="First name" />
+                            </div>
 
-            <div>
-                <label>Last name:</label>
-                <input {...register('lastName', { required: true })} placeholder="Last name" />
-            </div>
+                            <div>
+                                <label>Last name:</label>
+                                <input {...register('lastName', { required: true })} placeholder="Last name" />
+                            </div>
 
-            <div>
-                <label>Email Adress:</label>
-                <input {...register('emailadress', { required: true })} placeholder="Email adress" />
-            </div>
-            <div>
-                <label>Title:</label>
-                <input {...register('headline', { required: true })} />
-            </div>
+                            <div>
+                                <label>Email Adress:</label>
+                                <input {...register('emailadress', { required: true })} placeholder="Email adress" />
+                            </div>
+                            <div>
+                                <label>Title:</label>
+                                <input {...register('headline', { required: true })} />
+                            </div>
 
-            <div>
-                <label>Message:</label>
-            </div>
-            <div>
-                <textarea{...register('message', { required: true })} placeholder="Write your message here" />
-            </div>
-            <div>
-                <input type="submit" />
-            </div>
-        </form>
+                            <div>
+                                <label>Message:</label>
+                            </div>
+                            <div>
+                                <textarea{...register('message', { required: true })} placeholder="Write your message here" />
+                            </div>
+                            <div>
+                                <input type="submit" />
+                            </div>
+                        </form>
+                    </Accordion.Body>
+                </Accordion.Item>
+            </Accordion>
+        </>
     );
 }
 
 export default Messages
+

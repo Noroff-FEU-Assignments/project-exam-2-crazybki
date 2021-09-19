@@ -1,0 +1,59 @@
+.container {
+    width: 100%;
+}
+
+.container .carousel .slide img {
+    max-height: 100vh;
+    object-fit: cover;
+    width: auto;
+}
+
+
+.specific_descriptioncontainer {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    background-color: $lightgrey;
+    width: 60%;
+    padding: 40px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    box-shadow: 3px 3px 3px 3px grey;
+}
+
+.specific_info {
+    background-color: $lightgrey;
+}
+
+.specific_hotelname {
+    text-align: center;
+    background-color: $lightgrey;
+}
+
+.specific_infodetails {
+    display: flex;
+    justify-content:space-evenly;
+}
+
+.specific_detailheading {
+    text-transform: uppercase;
+    background-color: $lightpurple;
+    text-align: center;
+    margin: 0 0 15px 0;
+}
+
+.specific_hoteldetails {
+    font-size: $fontsize;
+    background-color: $lightpurple;
+    padding: 15px;
+    box-shadow: 3px 3px 3px 3px grey;
+    width: 400px;
+}
+
+.specific_list{
+    background-color: $lightpurple;
+}
+
+.specific_cityinfo {
+    font-size: $fontsize;
+}

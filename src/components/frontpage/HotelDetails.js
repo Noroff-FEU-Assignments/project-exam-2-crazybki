@@ -5,6 +5,8 @@ import { hotelApi } from "../constants/ApiStrings"
 import Messages from "../inqurieries/Messages";
 import { Spinner } from "react-bootstrap"
 import OrderHotelForm from './OrderHotelForm';
+import ImageSlider from './ImageSlider';
+import InfoDetails from './InfoDetails';
 
 
 function HotelDetails() {
@@ -63,19 +65,25 @@ function HotelDetails() {
 
 
     return (
-        <div>
-            <h1>{hotels.Name}</h1>
-            <p>{hotels.description}</p>
+        <>
+            <ImageSlider images={hotels.img} />
+            <div className="specific_descriptioncontainer">
+                <h1 className="specific_hotelname">{hotels.Name}</h1>
+                <p className="specific_info">{hotels.Info}</p>
+            </div>
+
+            <div className="specific_infodetails">
+                <InfoDetails details={hotels.includes_whataround} />
+            </div>
             <div>
                 <OrderHotelForm hotelinfo={hotels.Name} />
             </div>
             <div>
                 <Messages name={hotels.Name} />
             </div>
-        </div>
+        </>
     )
 }
 
 export default HotelDetails
 
-//"/orderhotelform"

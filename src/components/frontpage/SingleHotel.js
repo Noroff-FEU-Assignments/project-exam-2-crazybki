@@ -5,10 +5,10 @@ function SingleHotel({ id }) {
 
     return (
         <div className="frontpage_btn">
-            <Link to={`hotels/${id}`}>
-                <span className="color_btn">See more</span>
+            <Link style={{ textDecoration: 'none', color: 'white' }} to={`hotels/${id}`}>
+                See more
             </Link>
-        </div>
+        </div >
     )
 }
 

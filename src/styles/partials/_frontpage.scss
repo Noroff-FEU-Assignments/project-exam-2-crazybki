@@ -1,3 +1,8 @@
+body {
+    position: absolute;
+    top: 0;
+}
+
 .heading__frontpage {
     text-transform: uppercase;
     text-align: center;
@@ -24,6 +29,20 @@
     margin: 30px 0 0 0;
 }
 
+.frontpage_flexcontainerimg {
+    @extend .frontpage_flexcontainer;
+    margin: 0 0 170px 0;
+    & .frontpage_icon {
+        margin: 0 25px 0 25px;
+    }
+}
+
+.frontpage_icontxt {
+    text-align: center;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
 
 .frontpage_headings {
     text-transform: uppercase;
@@ -42,21 +61,25 @@
 .frontpage_img {
     height: 20%;
     width: 10%;
+    margin: 0 120px 0 0;
 }
 
 .frontpage_btn {
     display: inline-block;
-    background-color: blue;
+    background-color:#18002A;
     border-radius: 6px;
     align-self: center;
-    margin: 0 0 0 30px;
-    padding: 25px;
-
-    & .color_btn {
-        color: white;
-        background-color: blue;
-    }
+    margin: 0 0 0 140px;
+    padding: 25px 30px;
+    font-size: $fontsize;
+    transition: all 500ms ease; 
+    cursor: pointer;
 }
+
+.frontpage_btn:hover {
+    background-color:#3a0a5f;
+}
+
 
 
 .frontpage_heroimg {
@@ -71,11 +94,13 @@
     text-align: center;
     margin: 150px 0 150px 0;
 
+
     & .frontpage_input {
         width: 20%;
         transition: all 1000ms;
         padding: 10px;
         border-radius: 8px;
+
     }
 
     & .frontpage_input:focus {
@@ -83,6 +108,7 @@
         border: none;
     }
 }
+
 
 
 
