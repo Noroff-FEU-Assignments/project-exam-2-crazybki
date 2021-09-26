@@ -20,7 +20,7 @@ function OrderHotelForm(props) {
         to_date: yup.string().required('Please enter a date you want to book the hotel room')
     })
 
-    const [SentMessage, setSentMessage] = useState(false);
+    const [sentMessage, setSentMessage] = useState(false);
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm({
         resolver: yupResolver(schema),
@@ -130,7 +130,7 @@ function OrderHotelForm(props) {
                                         </Col>
                                     </Row>
                                 </Form.Group>
-                                {SentMessage && <p>Thanks your message has been sent</p>}
+                                {sentMessage && <p>Thanks your message has been sent</p>}
 
                                 <Button type="submit">Book now</Button>
                             </Form>

@@ -17,7 +17,7 @@ function Navigation() {
             <Link to="/">Home</Link>
             {auth ? (
                 <>
-                    | <Link to="/reservations">Reservations</Link> | <Link to="/adminmessages">inquries</Link> | <button onClick={loggingOut}>Log Out</button>
+                    | <Link to="/reservations">Reservations</Link> | <Link to="/adminmessages">inquries</Link> | <Link to="/publishhotels">New hotel</Link>  | <button onClick={loggingOut}>Log Out</button>
                 </>
             ) : (
                 <Link to="/login">Login</Link>

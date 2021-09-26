@@ -7,7 +7,7 @@ import Navigation from "./components/navigation/Navigation";
 import { AuthProvider } from "../src/components/context/AuthContext"
 import Reservations from "./components/adminpages/Reservations";
 import AdminMessages from "./components/adminpages/AdminMessages";
-import OrderHotelForm from "./components/frontpage/OrderHotelForm";
+import PublishHotels from "./components/adminpages/New hotels/PublishHotels"
 
 function App() {
   return (
@@ -22,9 +22,6 @@ function App() {
             <Route path="/hotels/:id">
               <HotelDetails />
             </Route>
-            <Route path="/orderhotelform">
-              <OrderHotelForm />
-            </Route>
             <Route path="/login">
               <LoginPage />
             </Route>
@@ -33,6 +30,9 @@ function App() {
             </Route>
             <Route path="/adminmessages">
               <AdminMessages />
+            </Route>
+            <Route path="/publishhotels">
+              <PublishHotels />
             </Route>
           </Switch>
         </Router>

@@ -57,3 +57,42 @@
 .specific_cityinfo {
     font-size: $fontsize;
 }
+
+.container {
+    display: flex;
+    justify-content: center;
+    margin: 135px 0 0 0;
+}
+
+.accordion {
+    width: 60%;
+}
+
+.accordion-button{
+    background-color: $lightpurple !important;
+    color: black !important;
+    font-size: $fontsize !important;
+    box-shadow: 3px 3px 3px 3px grey !important;
+}
+
+.form-label {
+    margin: 10px 0 10px 0;
+    font-size: $fontsize;
+}
+
+.errormsg {
+    margin-top: 10px;
+    color: red;
+}
+
+.submitbtn {
+    margin-top: 20px !important;
+    font-size: $fontsize !important;
+    background-color: $darlpurple !important;
+    border: none !important;
+    transition: all 1s ease !important; 
+}
+
+.submitbtn:hover {
+    background-color: #3a0a5f !important;
+}

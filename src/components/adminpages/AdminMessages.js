@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import { Spinner } from "react-bootstrap";
 import DeleteButton from './buttons/DeleteButton';
 
@@ -12,6 +12,10 @@ function AdminMessages() {
     const [messages, setMessages] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+
+    function onRefresh() {
+        window.location.reload();
+    }
 
     useEffect(function () {
 
@@ -47,6 +51,7 @@ function AdminMessages() {
     return (
         <>
             <h1 className="adminmessages_heading">Incoming messages</h1>
+            <button onClick={onRefresh}>Fetch new messages</button>
             {messages.map(inquiriry => {
                 return <div className="flex" key={inquiriry.updated_at}>
                     <div className="adminmessages_containter" key={inquiriry.id}>
@@ -56,7 +61,6 @@ function AdminMessages() {
                         <p className="adminmessages_title" key={inquiriry.headline}>Title: {inquiriry.headline}</p>
                         <p className="adminmessages_title" key={inquiriry.published_at}>Message:</p>
                         <p className="adminmessages_message" key={inquiriry.message}>{inquiriry.message}</p>
-                        <button className="adminmessages_reply" key={inquiriry.lastName} >Reply</button>
                         <DeleteButton idNumber={inquiriry.id} key={inquiriry.created_at} />
                     </div>
                 </div>
