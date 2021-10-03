@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import '../src/styles/styles.scss';
 import FrontPage from './components/frontpage/FrontPage';
 import HotelDetails from "./components/frontpage/HotelDetails";
 import LoginPage from "./components/login/LoginPage";
