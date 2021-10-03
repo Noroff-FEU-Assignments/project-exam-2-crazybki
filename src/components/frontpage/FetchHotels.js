@@ -7,7 +7,7 @@ import hero_front from "../../images/hero_front.jpg";
 import bedandbreakfast from "../../images/icons/bedandbreakfast.png";
 import hospits from "../../images/icons/hospits.png";
 import hotels from "../../images/icons/hotels.png";
-import bergen from "../../images/icons/bergen.jpg";
+
 
 
 function FetchHotels() {
@@ -15,7 +15,7 @@ function FetchHotels() {
     const [loadData, setLoadData] = useState(true);
     const [error, setError] = useState(null);
     const [searchData, setSearchData] = useState('');
-    const [filteredHospits, setHospits] = useState([]);
+
 
 
     function onSearch(e) {
@@ -23,9 +23,6 @@ function FetchHotels() {
         setSearchData(e.target.value)
     }
 
-    function onFilteredHospits(e) {
-        e.preventDefault()
-    }
 
     useEffect(function () {
         async function getData() {
@@ -70,8 +67,7 @@ function FetchHotels() {
 
 
     return (
-        <div className="backgroundimg">
-            <h1 className="heading__frontpage">Holidaze</h1>
+        <>
             <img
                 src={hero_front}
                 alt="image of fiskebryggen in bergen"
@@ -81,8 +77,6 @@ function FetchHotels() {
                 <input className="frontpage_input" type="search" placeholder="search hotels, B&B or hospits" onChange={onSearch} />
             </div>
 
-
-            <h2 className="frontpage_icontxt">Click icons to filter</h2>
             <div className="frontpage_flexcontainerimg">
                 <img
                     src={hotels}
@@ -100,25 +94,23 @@ function FetchHotels() {
                     src={hospits}
                     alt="icons for hospits, click to search"
                     className="frontpage_icon"
-                    onClick={onFilteredHospits}
                 />
             </div>
-
-            {filteredHotels.map(hotel => {
-                const { id, Name, description, img } = hotel
-                return <div className="frontpage_flexcontainer" key={hotel.id}>
-                    <img className="frontpage_img" src={`http://localhost:1337${hotel.frontpageimage.url}`} alt={`image of hotelroom from ${hotel.Name}`} />
-                    <div className="frontpage_descheading">
-                        <h2 className="frontpage_headings">{hotel.Name}</h2>
-                        <p className="frontpage_desc">{hotel.description}</p>
+            <div className="backgroundimg">
+                {filteredHotels.map(hotel => {
+                    const { id, Name, description, img } = hotel
+                    return <div className="frontpage_flexcontainer" key={hotel.id}>
+                        <img className="frontpage_img" src={`https://aqueous-reef-33257.herokuapp.com${hotel.frontpageimage.url}`} alt={`image of hotelroom from ${hotel.Name}`} />
+                        <div className="frontpage_descheading">
+                            <h2 className="frontpage_headings">{hotel.Name}</h2>
+                            <p className="frontpage_desc">{hotel.description}</p>
+                        </div>
+                        <SingleHotel key={id} id={id} name={Name} description={description} images={img} />
                     </div>
-                    <SingleHotel key={id} id={id} name={Name} description={description} images={img} />
-                </div>
-            })
-            }
-        </div>
-
-
+                })
+                }
+            </div>
+        </>
     )
 
 };

@@ -23,7 +23,7 @@ function Messages(props) {
     });
 
     async function submitMessage(data) {
-        const response = await axios.post('http://localhost:1337/messages', data)
+        await axios.post('https://aqueous-reef-33257.herokuapp.com//messages', data)
         reset();
     }
 

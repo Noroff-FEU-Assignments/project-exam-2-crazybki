@@ -1,0 +1,79 @@
+.reservation__heading {
+    text-align: center;
+    text-transform: uppercase;
+    margin: 50px 0 30px 0;
+}
+
+.reservation__btncontainer {
+    text-align: center;
+}
+
+.reservation__listcontainer {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 0 0 130px 0;
+}
+
+.reservation__info {
+    color: $whiteColor;
+    margin: 30px 20px 0 20px;
+    background-color: $lightgrey;
+    padding: 30px;
+    border-radius: 11px;
+}
+
+.reservation__subheading {
+    text-align: center;
+    margin: 0 0 20px 0;
+    text-transform: uppercase;
+}
+
+.reservation__hotelname {
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0 0 20px 0;
+}
+
+.reservation__name {
+    font-size: $fontsize;
+    margin: 30px 0 30px 0;
+}
+
+.reservation__adress {
+    @extend .reservation__name
+}
+
+.reservation__mobile {
+    @extend .reservation__name
+}
+
+.reservation__dates {
+    @extend .reservation__name
+}
+
+.customerisnotconfirmed {
+    background-color: red;
+    border: none;
+    padding: 15px 10px;
+    color: $whiteColor;
+    border-radius: 10px;
+}
+
+.customerisconfirmed {
+    background-color: green;
+    border: none;
+    padding: 15px 10px;
+    color: $whiteColor;
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 1200px) {
+    .reservation__info {
+        color: $whiteColor;
+        margin: 30px 10px 0 10px;
+        background-color: $lightgrey;
+        padding: 30px;
+        border-radius: 11px;
+    }
+}

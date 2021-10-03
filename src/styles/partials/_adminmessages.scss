@@ -5,54 +5,130 @@
     font-size: $heading1;
 }
 
-.flex{
+.flex {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
     margin: 30px 0 30px 0;
+    flex-wrap: wrap;
 }
 
 .adminmessages_containter {
     padding: 40px;
     border-radius: 10px;
-    background-color: $grey;
+    background-color: $darkgrey;
+    box-shadow: 15px 16px 17px -6px rgba(51,35,35,0.75);
+    width: 400px;
+    margin: 20px;
+    transition: 0.8s ease,
 }
 
+.adminmessages__reloadicon {
+    transform: scale(1) rotate(180deg);
+    animation: T-animation 1s linear infinite normal;
+} 
 
 
 .adminmessages_message {
-    width: 700px;
-    height: 100%;
+    width: 350px;
     font-size: $fontsize;
+    color: $whiteColor;
+    height: 150px;
+    overflow: auto;
 }
 
 .adminmessages_from {
     font-size: $fontsize;
+    color: $whiteColor;
 }
+
 
 .adminmessages_name {
     font-size: $fontsize;
+    color: $whiteColor;
 }
 
 .adminmessages_hotel {
     font-size: $fontsize;
+    color: $whiteColor;
 }
 
 .adminmessages_title {
     font-size: $fontsize;
-}
-
-.adminmessages_reply {
-    margin: 0 30px 0 0;
-    padding: 8px 15px;
-    font-size: $fontsize;
-    background-color:$blue;
-    color: white;
-    border: none;
+    color: $whiteColor;
 }
 
 .adminmessages_delete {
-    @extend .adminmessages_reply
+    width: 230px;
+    height: 50px;
+    border-radius: 8px;
+    border:none;
+    box-shadow: 2px 2px;
+    font-size: $fontsize;
+    text-transform: uppercase;
+    background-color: $grey;
 }
 
+.adminmessages__updatebtn {
+    @extend .loginform__btn;
+}
 
+.adminmessages__btn {
+    text-align: center;
+}
+
+.adminmessages_date {
+    text-transform: uppercase;
+    font-size: $fontsize;
+    color: $whiteColor;
+    text-align: center;
+    padding: 0 0 20px 0;
+}
+
+.adminmessages_containter:hover {
+    background-color:$lightgrey;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: $lightpurple;
+  }
+
+  .adminmessages__numbermsg {
+      font-size: $fontsize;
+      text-align: center;
+      background-color: $darlpurple;
+      color: $whiteColor;
+      padding: 10px 20px;
+      border-radius: 10px;
+  }
+
+  .adminmessages__notification {
+      text-align:center;
+      margin: 30px;
+  }
+
+  @media only screen and (max-width: 1200px) {
+      .flex {
+          justify-content: center;
+      }
+  }
+
+  @media screen and (max-width: 640px) {
+      .adminmessages_containter{
+          margin: 20px 10px 20px 40px; 
+          width: 80%;
+      }
+
+      .adminmessages_message {
+        display: inline;
+      }
+
+      .adminmessages_delete {
+          display: block;
+          width: 180px;
+          margin: 25px 0 0 0;
+      }
+  }

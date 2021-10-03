@@ -1,5 +1,122 @@
-.nav {
-    background-color: black;
-    padding: 0 0 60px 0;
+.navigation {
+    background-color: $darlpurple;
+    height: 90px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    box-shadow: 0px 10px 10px 5px  rgba(37,31,51,0.5);
 }
 
+.navigation__img {
+    display: none;
+}
+
+.nav-icon {
+    display: none;
+}
+
+
+.navigation__links {
+    color: $whiteColor;
+    text-decoration: none;
+    font-size: $heading3;
+    text-transform: uppercase;
+    margin: 0 30px 0 30px;
+}
+
+.navigation__btn {
+    background-color: $darlpurple;
+    border: none;
+}
+
+.navigation__loginimg {
+    width: 20%;
+    margin: 0 10px 10px 0;
+}
+
+.container__nav {
+    background-color: $darlpurple;
+}
+
+.nav__mobile {
+    display: none;
+}
+
+
+@media only screen and (max-width: 1200px) {
+    
+    .navigation__links {
+        font-size: $padsHeading;
+        margin: 0 10px 0 0;
+    }
+
+    .nav__closemenu {
+        display: none;
+    }
+
+    .navigation__img {
+        width: 11%;
+    }
+
+    .nav-icon {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 640px) {
+
+    .nav-icon {
+        display: block;
+    }
+
+    .container__nav {
+        height: 75px;
+    }
+    .navigation {
+        position: relative;
+        height: 100%;
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: center;
+        background-color: $darlpurple;
+    }
+
+    .navigation__links {
+        margin: 10px 0 10px 0;  
+    }
+
+    .nav__mobile {
+        display: inline-block;
+        width: 10%;
+        margin: 15px 0 0 10px;
+    }   
+    
+    .nav__closemenu {
+        display: inline-block;
+        width: 12%;
+        margin:  15px 0 10px 10px;
+        z-index: 601;
+    }
+
+
+    .navigation__mobilemenu {
+		display: flex;
+		flex-direction: column;
+		position: absolute;
+		text-align: center;
+		top: 180px;
+		left: -100%;
+        z-index: 200;
+    }
+
+    .navigation__mobilemenu__open {
+        width: 100%;
+        z-index: 999;
+        position: absolute;
+    }
+
+    .navigation__img {
+        display: none;
+    }
+}

@@ -25,12 +25,13 @@ function OrderHotelForm(props) {
     const { register, handleSubmit, reset, formState: { errors } } = useForm({
         resolver: yupResolver(schema),
         defaultValues: {
-            hotelname: props.hotelinfo
+            hotelname: props.hotelinfo,
+            checkedin: false
         }
     });
 
     async function submitBookedHotel(data) {
-        const response = await axios.post('http://localhost:1337/hotel-reservations', data);
+        const response = await axios.post('https://aqueous-reef-33257.herokuapp.com/hotel-reservations', data);
         console.log(response.data)
         setSentMessage(true);
         setTimeout(() => {
@@ -51,8 +52,8 @@ function OrderHotelForm(props) {
     return (
         <>
             {values.map((v, idx) => (
-                <Button key={idx} className="me-2" onClick={() => handleShow(v)}>
-                    Book now
+                <Button key={idx} className="me-2 newhotel__btn" onClick={() => handleShow(v)}>
+                    Order now!
                     {typeof v === 'string' && `below ${v.split('-')[0]}`}
                 </Button>
             ))}
@@ -62,14 +63,9 @@ function OrderHotelForm(props) {
                     <Modal.Header closeButton></Modal.Header>
 
                     <Modal.Body>
-                        <Container>
-                            <Row>
-                                <Col>
-                                    <Image src={orderimg} fluid />
-                                    <h1 className="orderform_heading">Booking for {props.hotelinfo}</h1>
-                                </Col>
-                            </Row>
-                        </Container>
+
+                        <Image src={orderimg} fluid className="newhotel__img" />
+                        <h1 className="orderform_heading">Booking for {props.hotelinfo}</h1>
 
                         <Container>
                             <Form onSubmit={handleSubmit(submitBookedHotel)}>
@@ -97,7 +93,7 @@ function OrderHotelForm(props) {
                                 <Form.Group>
                                     <Row>
                                         <Col>
-                                            <Form.Label>Mobile number</Form.Label>
+                                            <Form.Label>Mobile</Form.Label>
                                             <Form.Control type="mobile" {...register('mobilenumber', { required: true })} placeholder="Mobile number...." />
                                             {errors.mobilenumber && <span>{errors.mobilenumber.message}</span>}
                                         </Col>
@@ -131,8 +127,9 @@ function OrderHotelForm(props) {
                                     </Row>
                                 </Form.Group>
                                 {sentMessage && <p>Thanks your message has been sent</p>}
-
-                                <Button type="submit">Book now</Button>
+                                <div className="newhotel__btncontainer">
+                                    <Button type="submit" className="newhotel__btn">Book now</Button>
+                                </div>
                             </Form>
                         </Container>
                     </Modal.Body>

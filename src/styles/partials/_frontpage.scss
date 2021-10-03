@@ -1,21 +1,16 @@
 
+body {
+    background-image: url('../../images/icons/background.png');
+}
 
 .heading__frontpage {
     text-transform: uppercase;
     text-align: center;
-    position: absolute;
-    top: 50px;
-    left: 900px;
-    z-index: 999;
     background: none;
     color: white;
 }
 
-.test {
-    background-color: black;
-    padding: 20px;
-    margin: 20px 0 20px 0;
-}
+
 
 
 /***********---FRONTPAGE---****************/
@@ -24,13 +19,17 @@
     display: flex;
     justify-content: center;
     margin: 30px 0 0 0;
+    position: relative;
 }
 
 .frontpage_flexcontainerimg {
-    @extend .frontpage_flexcontainer;
-    margin: 0 0 170px 0;
+    display: flex;
+    justify-content: center;
+    margin: 30px 0 0 0;
+    position: relative;
+    margin: 0 0 90px 0;
     & .frontpage_icon {
-        margin: 0 25px 0 25px;
+        margin: 0 15px 0 25px;
     }
 }
 
@@ -80,16 +79,15 @@
 
 
 .frontpage_heroimg {
-    height: 600px;
     width: 100%;
-    display: inline;
+    height: auto;
     object-fit: cover;
-    position: relative;
+    max-height: 60vh;
 }
 
 .frontpage_search {
     text-align: center;
-    margin: 150px 0 150px 0;
+    margin: 150px 0 100px 0;
 
 
     & .frontpage_input {
@@ -110,3 +108,55 @@
 
 
 /***********---FRONTPAGE---****************/
+
+/***********---FRONTPAGE MEDIAQUERIES TABLETS---****************/
+@media only screen and (max-width: 1021px) {
+    .frontpage_search {
+        text-align: center;
+        margin: 150px 0 50px 0;
+        
+    
+        & .frontpage_input {
+            width: 20%;
+            padding: 10px;
+            border-radius: 8px;
+    
+        }
+    
+        & .frontpage_input:focus {
+            width: 20%;
+            padding: 10px;
+            border-radius: 8px;
+        }
+    }
+
+    .frontpage_flexcontainer {
+        flex-wrap: wrap;
+    }
+
+    .frontpage_img {
+        width: 80%;
+        margin: 80px 0 80px 30px;
+    }
+
+    .frontpage_desc {
+        max-width: 610px;
+        font-size: $fontsize;
+    }
+
+    .frontpage_btn {
+        display: inline-block;
+        margin: 0 0 0 0;
+        padding: 15px 100px;
+        font-size: $fontsize;
+    }
+
+    .heading__frontpage {
+        text-transform: uppercase;
+        text-align: center;
+        background: none;
+        color: white;
+    }
+}
+
+/***********---FRONTPAGE MEDIAQUERIES TABLETS---****************/

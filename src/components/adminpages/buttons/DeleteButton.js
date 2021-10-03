@@ -6,7 +6,7 @@ function DeleteButton(props) {
     let token = JSON.parse(localStorage.getItem('AuthKey')).jwt
 
     async function sendDeleteReq(id) {
-        const res = await axios.delete(`http://localhost:1337/messages/${id}`, {
+        await axios.delete(`http://localhost:1337/messages/${id}`, {
             headers: { Authorization: `Bearer ${token}` }
         });
     }

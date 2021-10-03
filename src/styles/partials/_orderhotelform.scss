@@ -6,3 +6,23 @@
 .newhotel_container {
     width: 1200px !important;
 }
+
+.newhotel__img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    max-height: 100vh;
+}
+
+.container {
+    margin-top: 50px !important;
+}
+
+.newhotel__btncontainer {
+    margin: 50px 0 40px 0;
+    text-align: center;
+}
+
+.newhotel__btn {
+    padding: 10px 60px !important;
+}

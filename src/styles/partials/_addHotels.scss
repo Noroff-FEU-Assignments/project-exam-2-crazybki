@@ -1,0 +1,22 @@
+.newhotels__input {
+    padding: 10px;
+    margin: 0 0 20px 0;
+}
+
+.newhotel__label {
+    text-align: center;
+    display: block;
+}
+
+input, textarea, select {
+    box-shadow: none !important;
+}
+
+.newhotel__launched {
+    text-align: center;
+    font-size: $heading3;
+    text-transform: uppercase;
+    background-color: green;
+    margin: 20px 0 0 0;
+    color: white;
+}

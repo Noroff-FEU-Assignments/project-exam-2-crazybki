@@ -1,0 +1,96 @@
+.loginform__containerform{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    background-color: $lightgrey;
+    align-items: center;
+}
+
+.loginform__input {
+    width: 650px;
+    height: 60px;
+    border-radius: 6px;
+    background-color: $lightgrey;
+    margin: 0 0 25px 0;
+    transition: all 0.3s ease;
+    text-align: center;
+    font-size: $fontsize;
+}
+
+.loginform__input:focus {
+    background-color: $background;
+    outline: none;
+}
+
+.loginform__label {
+    text-transform: uppercase;
+    font-weight: bold;
+    background: $lightpurple;
+    color: white;
+}
+
+::placeholder {
+    padding: 0 0 0 7px;
+    text-transform: uppercase;
+}
+
+.loginform__background {
+    background: $lightpurple;
+    padding: 15px;
+    text-align: center;
+    border-radius: 15px;
+}
+
+.loginform__imgcontainer {
+    background-size: cover;
+    flex: 50%;
+}
+
+.loginform__img{
+    width: 100%;
+}
+
+.loginform__screen {
+    flex: 50%;
+    margin: 0 30px 0 30px;
+    background-color: $darlpurple;
+}
+
+.loginform__btn {
+    width: 230px;
+    height: 50px;
+    border-radius: 8px;
+    border:none;
+    box-shadow: 2px 2px;
+    font-size: $fontsize;
+    text-transform: uppercase;
+}
+
+
+@media screen and (max-width: 640px) {
+    .loginform__containerform{
+        flex-direction: column;
+    }
+
+    .loginform__img {
+        box-shadow: 10px 10px 5px #ccc;
+    }
+
+    .loginform__screen {
+        margin: 20px 0 0 0;
+        width: 310px
+    }
+
+    .loginform__input {
+        width: 250px;
+    }
+
+    .loginform__containerform {
+        background-color: transparent;
+        margin: 0 0 30px 0;
+    }
+
+    .loginform__screen {
+        background-color: transparent;
+    }
+}

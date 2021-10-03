@@ -8,6 +8,7 @@ import { AuthProvider } from "../src/components/context/AuthContext"
 import Reservations from "./components/adminpages/Reservations";
 import AdminMessages from "./components/adminpages/AdminMessages";
 import PublishHotels from "./components/adminpages/New hotels/PublishHotels"
+import Footer from "./components/navigation/Footer";
 
 function App() {
   return (
@@ -36,6 +37,9 @@ function App() {
             </Route>
           </Switch>
         </Router>
+        <div className="container__test">
+          <Footer />
+        </div>
       </AuthProvider>
     </div>
   );

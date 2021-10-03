@@ -15,7 +15,7 @@ function FileUploads(props) {
         const formData = new FormData();
         formData.append('files', uploadImg)
 
-        const upLoad = await axios.post('http://localhost:1337/upload', formData)
+        const upLoad = await axios.post('https://aqueous-reef-33257.herokuapp.com/uploads', formData)
 
         console.log(upLoad.data)
         props.info(upLoad.data)

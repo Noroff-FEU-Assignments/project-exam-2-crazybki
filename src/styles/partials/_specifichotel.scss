@@ -1,57 +1,77 @@
-.container {
+
+
+.carousel {
+    padding: 0 !important;
+}
+
+.imgcontainer {
     width: 100%;
-}
-
-.container .carousel .slide img {
-    max-height: 100vh;
+    height: auto;
     object-fit: cover;
-    width: auto;
+    max-height: 60vh;
 }
 
+.specific__pagecontainer {
+    position: relative;
+}
+
+.specific__container {
+    display: flex;
+    justify-content: center;
+    margin: 60px 0 0 0;
+}
 
 .specific_descriptioncontainer {
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    background-color: $lightgrey;
-    width: 60%;
-    padding: 40px;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    box-shadow: 3px 3px 3px 3px grey;
+    background-color: $grey;
+    width: 700px;
+    padding: 20px;
 }
 
+.specific_nearhotel {
+    background-color: $grey;
+    padding: 20px;
+    width: 420px;
+    font-size: $fontsize;
+}
+
+
 .specific_info {
-    background-color: $lightgrey;
+    background-color: $grey;
 }
 
 .specific_hotelname {
     text-align: center;
-    background-color: $lightgrey;
+    background-color: $grey;
 }
 
-.specific_infodetails {
+.specific_orderhotelform {
+    text-align: center;
+    margin: 150px 0 150px 0;
+}
+
+.specific__includescontainer {
     display: flex;
-    justify-content:space-evenly;
+    justify-content: space-around;
+    margin: 120px 0 0 0;
 }
 
 .specific_detailheading {
     text-transform: uppercase;
-    background-color: $lightpurple;
+    background-color: $grey;
     text-align: center;
     margin: 0 0 15px 0;
 }
 
 .specific_hoteldetails {
     font-size: $fontsize;
-    background-color: $lightpurple;
+    background-color: $grey;
     padding: 15px;
-    box-shadow: 3px 3px 3px 3px grey;
-    width: 400px;
+    width: 420px;
+    border-radius: 8px;
 }
 
 .specific_list{
-    background-color: $lightpurple;
+    background-color: $grey;
 }
 
 .specific_cityinfo {
@@ -95,4 +115,128 @@
 
 .submitbtn:hover {
     background-color: #3a0a5f !important;
+}
+
+
+
+.specific__orderBtn  {
+    margin: 50px 0 40px 0 !important;
+    text-align: center !important;
+}
+
+.carousel-indicators {
+background-color: transparent!important;
+}
+
+.accordion-header {
+    background-color:$grey!important;
+}
+
+.messages__container {
+    background-color: $grey;
+}
+
+.accordion-button {
+    background-color: $grey !important;
+}
+
+.accordion-body {
+    background-color: $lightpurple;
+}
+
+
+/***********---SPECIFICPAGE MEDIAQUERIES TABLETS---****************/
+@media only screen and (max-width: 1021px) {
+    .imgcontainer {
+        width: 80%;
+        height: auto;
+        object-fit: cover;
+        max-height: 40vh;
+    }
+
+    .specific_hoteldetails {
+        padding: 15px;
+        width: 320px;
+        border-radius: 8px;
+    }
+
+    .specific_nearhotel {
+        padding: 20px;
+        width: 320px;
+    }
+    
+}
+
+/***********---SPECIFICPAGE MEDIAQUERIES TABLETS---****************/
+
+@media only screen and (max-width: 640px) {
+    .accordion {
+        width: 100%;
+    }
+
+    .specific_descriptioncontainer {
+        width: 300px;
+    }
+
+    .specific__includescontainer {
+        flex-direction: column;
+    }
+
+    .specific_hoteldetails {
+        margin: 0 0 0 45px;
+    }
+
+    .specific_nearhotel {
+        margin: 25px 0 0 45px;
+    }
+
+    .imgcontainer {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        max-height: 30vh;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .specific_hoteldetails {
+        margin: 0 0 0 25px;
+    }
+
+    .specific_nearhotel {
+        margin: 25px 0 0 25px;
+    }
+
+    .imgcontainer {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        max-height: 30vh;
+    }
+}
+
+
+@media only screen and (max-width: 320px) {
+    .specific_hoteldetails {
+        margin: 0 0 0 15px;
+    }
+
+    .specific_nearhotel {
+        margin: 25px 0 0 15px;
+    }
+
+    .specific_hoteldetails {
+        width: 290px;
+    }
+
+    .specific_nearhotel {
+        width: 290px;
+    }
+
+    .imgcontainer {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        max-height: 30vh;
+    }
 }

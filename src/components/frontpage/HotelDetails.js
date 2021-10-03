@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams, useHistory, Link } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import { hotelApi } from "../constants/ApiStrings"
 import Messages from "../inqurieries/Messages";
@@ -66,20 +66,36 @@ function HotelDetails() {
 
     return (
         <>
-            <ImageSlider images={hotels.img} />
-            <div className="specific_descriptioncontainer">
-                <h1 className="specific_hotelname">{hotels.Name}</h1>
-                <p className="specific_info">{hotels.Info}</p>
-            </div>
+            <div className="specific__pagecontainer">
+                <ImageSlider images={hotels.img} />
+                <div className="specific__container">
+                    <div className="specific_descriptioncontainer">
+                        <h1 className="specific_hotelname">{hotels.Name}</h1>
+                        <p className="specific_info">{hotels.Info}</p>
+                    </div>
+                </div>
+                <div className="specific_infodetails">
+                    <InfoDetails
+                        touristAttraction={hotels.around}
+                        touristAttraction1={hotels.around1}
+                        touristAttraction2={hotels.around2}
+                        touristAttraction3={hotels.around3}
+                        touristAttraction4={hotels.around4}
 
-            <div className="specific_infodetails">
-                <InfoDetails details={hotels.includes_whataround} />
-            </div>
-            <div>
-                <Messages name={hotels.Name} />
-            </div>
-            <div>
-                <OrderHotelForm hotelinfo={hotels.Name} />
+                        hotelInfo={hotels.includes}
+                        hotelInfo1={hotels.includes1}
+                        hotelInfo2={hotels.includes2}
+                        hotelInfo3={hotels.includes3}
+                        hotelInfo4={hotels.includes4}
+                    />
+                </div>
+                <div>
+                    <Messages />
+                </div>
+                <div className="specific_orderhotelform">
+                    <p>Order right now</p>
+                    <OrderHotelForm hotelinfo={hotels.Name} />
+                </div>
             </div>
         </>
     )

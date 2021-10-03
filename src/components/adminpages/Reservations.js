@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from "react";
 import { Spinner } from "react-bootstrap";
-import DeleteButton from './buttons/DeleteButton';
+import ConfirmedBtn from './buttons/ConfirmedBtn';
 
 
 function Reservations() {
@@ -20,7 +20,7 @@ function Reservations() {
 
         async function getReservations() {
             try {
-                const res = await axios.get('http://localhost:1337/hotel-reservations', {
+                const res = await axios.get('https://aqueous-reef-33257.herokuapp.com/hotel-reservations', {
                     headers: { Authorization: `Bearer ${token}` }
                 })
                 setRervations(res.data);
@@ -51,19 +51,27 @@ function Reservations() {
 
     return (
         <>
-            <h1>Reservations</h1>
-            <button onClick={onCheckReservations}>check for new messages</button>
-            {reservations.map(resMsg => {
-                console.log(resMsg)
-                return <div key={resMsg.id}>
-                    <h2>New reservation</h2>
-                    <h3>{resMsg.hotelname}</h3>
-                    <p key={resMsg.uppdated_at}>Name: {resMsg.firstName} {resMsg.lastName}</p>
-                    <p key={resMsg.created_at}>Adress: {resMsg.adress} {resMsg.city}</p>
-                    <p key={resMsg.mobilenumber}>Mobilenumber: {resMsg.mobilenumber}</p>
-                    <p key={resMsg.to_date}>Booked from: {new Date(resMsg.from_date).toDateString()} To: {new Date(resMsg.to_date).toDateString()}</p>
-                </div>
-            })}
+            <h1 className="reservation__heading">Reservations</h1>
+            <div className="reservation__btncontainer">
+                <button onClick={onCheckReservations}>check for new messages</button>
+            </div>
+            <p className="adminmessages__notification">{reservations.length > 0 && <span className="adminmessages__numbermsg">You have {reservations.length} new reservations</span>}</p>
+            <div className="reservation__listcontainer">
+                {reservations.map(resMsg => {
+                    console.log('checkin is ' + resMsg.checkedin)
+                    return <div className="reservation__info" key={resMsg.id}>
+                        <h2 className="reservation__subheading">New reservation</h2>
+                        <h3 className="reservation__hotelname">{resMsg.hotelname}</h3>
+                        <p className="reservation__name" key={resMsg.uppdated_at}>Name: {resMsg.firstName} {resMsg.lastName}</p>
+                        <p className="reservation__adress" key={resMsg.created_at}>Adress: {resMsg.adress} {resMsg.city}</p>
+                        <p className="reservation__mobile" key={resMsg.mobilenumber}>Mobilenumber: {resMsg.mobilenumber}</p>
+                        <p className="reservation__dates" key={resMsg.to_date}>Booked from: {new Date(resMsg.from_date).toDateString()} To: {new Date(resMsg.to_date).toDateString()}</p>
+                        <p>{resMsg.checkedin}</p>
+                        <ConfirmedBtn customerId={resMsg.id} customerCheckedIn={resMsg.checkedin} />
+
+                    </div>
+                })}
+            </div>
         </>
     )
 }
